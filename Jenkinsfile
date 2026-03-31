@@ -25,7 +25,7 @@ pipeline {
         stage('3. Docker(image) Build') {
             steps {
                 echo 'Docker 파일 빌드'
-                sh 'docker build -t ex01-app:latest .'
+                sh 'docker build -t myex-app:latest .'
             }
         }
         stage('4. Docker 컨테이너로 Push') {
@@ -37,8 +37,8 @@ pipeline {
                 )]) {
                     sh '''
                     echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
-                    docker tag ex01-app:latest $DOCKERHUB_USERNAME/ex01-app:latest
-                    docker push $DOCKERHUB_USERNAME/ex01-app:latest
+                    docker tag ex01-app:latest $DOCKERHUB_USERNAME/myex-app:latest
+                    docker push $DOCKERHUB_USERNAME/myex-app:latest
                     '''
                 }
             }
