@@ -12,7 +12,7 @@ public class MyExApplication {
     @GetMapping("/")
     public String hello() {
         System.out.println("MyEx");
-        return "MyEx Test: Am 16:53";
+        return "MyEx Test: Am 17:06";
     }
 
     public static void main(String[] args) {
